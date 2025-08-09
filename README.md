@@ -124,6 +124,15 @@ Cash out anytime to lock in your winnings.
 - **Demo Video:** will be updated after Somnia Spin is deployed.
 
 ---
+## Future Roadmap
+
+- Finish development of Somnia Spin
+- Launch Somnia Plinko and Somnia Wheels
+- Enhance mobile UI and explore PWA + Telegram mini-game versions
+- Streamline wallet flow for faster, smoother play
+- Deploy to Somnia mainnet once live
+
+---
 
 ## 🏆 Hackathon Notes
 
