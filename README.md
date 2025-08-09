@@ -31,29 +31,6 @@ Cash out anytime to lock in your winnings.
 
 ---
 
-## 📂 Repository Structure
-SomniaArcade/
-│
-├── images/ # Static assets (logos, game images, icons)
-│
-├── SomniaHiLo/ # Hi-Lo game frontend + contract
-│ ├── index.html
-│ ├── script.js
-│ └── SomniaHiLo.sol
-│
-├── SomniaMines/ # Mines game frontend + contract
-│ ├── index.html
-│ ├── script.js
-│ └── SomniaMines.sol
-│
-├── SomniaTestnet-SmartContracts/ # Compiled and deployed smart contracts
-│
-├── index.html # Landing page (game selection, fairness, FAQ)
-└── main.css # Shared styling
-
-
----
-
 ## 🛠 How to Test on Somnia Testnet
 
 ### Prerequisites
