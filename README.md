@@ -5,6 +5,7 @@ Every game runs entirely on smart contracts with **provable fairness**, transpar
 
 The platform is designed for quick, fun gameplay while showcasing Somnia’s speed, low cost, and ability to handle real-time interactive dApps.
 
+<img width="1287" height="812" alt="SomniaArcade" src="https://github.com/user-attachments/assets/679bce7c-86a0-4848-97d1-1024a8be77f4" />
 ---
 
 ## 🎮 Games
@@ -15,6 +16,8 @@ The platform is designed for quick, fun gameplay while showcasing Somnia’s spe
 Guess if the next card is **higher** or **lower** than the current one.  
 Each guess is a transaction, and the deck is shuffled on-chain from a committed seed. Ties lose.
 
+<img width="1319" height="577" alt="SomniaHilo" src="https://github.com/user-attachments/assets/40443c2b-7198-4df1-bcfb-862bf2637fa3" />
+
 ---
 
 ### 2. Somnia Mines
@@ -24,12 +27,16 @@ Open tiles to reveal safe spots and climb the multiplier.
 Bomb positions are generated using on-chain randomness from a committed seed.  
 Cash out anytime to lock in your winnings.
 
+<img width="1326" height="950" alt="SomniaMines" src="https://github.com/user-attachments/assets/db0469cd-8574-4f86-b8a1-3e44f6e24676" />
+
 ---
 
 ### 3. Somnia Spin  
 **Status:** 🚧 Coming Soon, We’re actively developing it and will update once deployed.
 
----
+
+---<img width="1324" height="678" alt="SomniaSpin" src="https://github.com/user-attachments/assets/0cf9a8a5-ec86-4c53-8f30-bd027ab44a32" />
+
 
 ## 🛠 How to Test on Somnia Testnet
 
