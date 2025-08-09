@@ -42,7 +42,7 @@ Cash out anytime to lock in your winnings.
 ## 🛠 How to Test on Somnia Testnet
 
 ### Prerequisites
-- [MetaMask](https://metamask.io/) or a wallet with Somnia Testnet added
+- MetaMask or a wallet with Somnia Testnet added
 - Some **STT** test tokens (faucet link if available)
 - A browser that supports Web3 injection (e.g., Chrome)
 
