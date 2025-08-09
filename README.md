@@ -27,7 +27,7 @@ Cash out anytime to lock in your winnings.
 ---
 
 ### 3. Somnia Spin  
-**Status:** 🚧 Coming Soon — We’re actively developing it and will update once deployed.
+**Status:** 🚧 Coming Soon, We’re actively developing it and will update once deployed.
 
 ---
 
@@ -53,7 +53,7 @@ Cash out anytime to lock in your winnings.
 
 4. **Start a round:**  
    - Set your bet (fixed for testnet version)  
-   - Click **"Start"** — this commits your seed to the contract.
+   - Click **"Start"**, this commits your seed to the contract.
    
 5. **Guess higher or lower:**  
    Each guess triggers a transaction to reveal the next card.
