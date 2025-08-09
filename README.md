@@ -6,6 +6,7 @@ Every game runs entirely on smart contracts with **provable fairness**, transpar
 The platform is designed for quick, fun gameplay while showcasing Somnia’s speed, low cost, and ability to handle real-time interactive dApps.
 
 <img width="1287" height="812" alt="SomniaArcade" src="https://github.com/user-attachments/assets/679bce7c-86a0-4848-97d1-1024a8be77f4" />
+
 ---
 
 ## 🎮 Games
@@ -34,9 +35,9 @@ Cash out anytime to lock in your winnings.
 ### 3. Somnia Spin  
 **Status:** 🚧 Coming Soon, We’re actively developing it and will update once deployed.
 
+<img width="1324" height="678" alt="SomniaSpin" src="https://github.com/user-attachments/assets/0cf9a8a5-ec86-4c53-8f30-bd027ab44a32" />
 
----<img width="1324" height="678" alt="SomniaSpin" src="https://github.com/user-attachments/assets/0cf9a8a5-ec86-4c53-8f30-bd027ab44a32" />
-
+---
 
 ## 🛠 How to Test on Somnia Testnet
 
