@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Somnia Mines — On-chain</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.12.1/dist/ethers.umd.min.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="../images/somnia-logo-original.png">
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="../index.html" class="brand-main" title="Back to Somnia Arcade">Somnia</a>
+      <a href="index.html" class="brand-sub" title="Mines">Mines</a>
+    </div>
+
+    <div class="summary">
+      <span>Bet: <strong id="betLabel">1 STT</strong></span>
+      <span>Multiplier: <strong id="mult">1.00×</strong></span>
+      <span>Potential: <strong id="payout">1.00 STT</strong></span>
+    </div>
+
+    <div class="wallet">
+      <button id="connectBtn" class="btn primary">Connect Wallet</button>
+      <div id="walletInfo" class="wallet-info hidden">
+        <span class="dot" id="netDot"></span>
+        <span id="addrShort">—</span>
+        <span class="sep">•</span>
+        <span id="walletBalance">0.0000 STT</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main layout: board left, side (round+balance+preview) right, rules full width -->
+  <main class="app">
+    <!-- Game board -->
+    <section class="card board-wrap">
+      <div id="board" class="board" aria-label="5 by 5 Mines Board"></div>
+
+      <!-- Inline notice UI (used by script.js) -->
+      <div id="notice" class="notice info"></div>
+
+      <!-- Click blocker while starting/revealing/waiting for seed -->
+      <div id="blocker" class="screen-block hidden">
+        <div>
+          <div class="spin"></div>
+          <div id="blockerText" class="block-msg">Processing…</div>
+        </div>
+      </div>
+
+      <!-- Round-over overlay -->
+      <div id="overlay" class="overlay hidden" aria-live="polite">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">Round Over</h2>
+          <p id="overlayText"></p>
+          <div class="overlay-actions">
+            <button id="revealAll" class="btn ghost">Reveal All</button>
+            <button id="newRound" class="btn primary">New Round</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right side: one combined card -->
+    <aside class="card side" id="sideCard">
+      <!-- Round -->
+      <div class="side-section">
+        <h3>Round</h3>
+        <div class="grid2">
+          <label for="bombs">Bombs</label>
+          <div class="range">
+            <input id="bombs" type="range" min="1" max="10" step="1" value="3" />
+            <div class="range-val"><span id="bombsVal">3</span></div>
+          </div>
+
+          <div>Safe picks</div>
+          <div><strong id="safeCount">0</strong> / <span id="safeTotal">22</span></div>
+
+          <div>Status</div>
+          <div id="status" class="status idle">Idle</div>
+        </div>
+
+        <div class="actions">
+          <button id="startBtn" class="btn primary">Start (on-chain)</button>
+          <button id="cashoutBtn" class="btn success" disabled>Cash Out</button>
+        </div>
+        <p class="hint" id="gateMsg">Connect Somnia Testnet (50312) and have ≥ 1 STT.</p>
+        <div class="hint" id="seedInfo"></div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Balance -->
+      <div class="side-section">
+        <h3>Your On-chain Balance</h3>
+        <div class="balance">
+          <div>
+            <div class="label">Pending in contract</div>
+            <div class="value" id="pendingBal">0.0000 STT</div>
+          </div>
+          <button class="btn ghost" id="withdrawAllBtn" disabled>Withdraw to wallet</button>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Multipliers preview -->
+      <div class="side-section">
+        <h3>Multipliers (preview, 1% edge)</h3>
+        <div id="table" class="mult-table"></div>
+      </div>
+    </aside>
+
+    <!-- Rules (full width) -->
+    <section class="card rules-card">
+      <h3>Game Rules</h3>
+      <ul class="rules bullets">
+        <li>Pick safe tiles to increase your multiplier. Avoid bombs.</li>
+        <li>Bomb positions are decided on-chain from future block randomness (mixed with <code>prevrandao</code>).</li>
+        <li>Each reveal is a transaction; cash out any time to lock in winnings.</li>
+        <li>Payouts go to your pending balance in the contract; withdraw to wallet when ready.</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer with contract -->
+  <footer class="foot">
+    <div class="foot-inner">
+      <span>Provably fair. Randomness from future blockhash + prevrandao.</span>
+      <span class="addr">
+        Contract:&nbsp;
+        <a class="addr-link" href="https://shannon-explorer.somnia.network/address/0x6b7FA09D6e4798965f644E32bD3bC0fe70acDE4B" target="_blank" rel="noopener">
+          0x6b7FA09D6e4798965f644E32bD3bC0fe70acDE4B
+        </a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

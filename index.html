@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Somnia Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.12.1/dist/ethers.umd.min.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="./images/somnia-logo-original.png">
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="container bar">
+      <a class="brand" href="#top">
+        <span class="brand-scan" aria-hidden="true"></span>
+        <strong>Somnia</strong><em>Arcade</em>
+      </a>
+      <nav class="nav">
+        <a href="#games">Games</a>
+        <a href="#fair">Fairness</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="wallet">
+        <button id="connectBtn" class="btn primary">Connect Wallet</button>
+        <div id="walletBox" class="wallet-box hidden">
+          <span class="dot" id="netDot"></span>
+          <span id="addrShort">—</span>
+          <span class="sep">•</span>
+          <span id="bal">0.0000 STT</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <h1>On-chain mini-arcade with provable randomness</h1>
+      <p>Clicks call contracts. Randomness comes from future blocks. You can audit odds, edge, and payouts.</p>
+      <div class="cta">
+        <a class="btn primary" href="#games">Play now</a>
+        <a class="btn ghost" href="#fair">Why it’s fair</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games -->
+  <section class="section" id="games">
+    <div class="container">
+      <header class="section-head">
+        <h2>Games</h2>
+        <p>Same model across the arcade: fixed entry, on-chain reveals, cash-out to balance.</p>
+      </header>
+
+      <div class="game-row">
+        <!-- Hi-Lo -->
+        <article class="game-card">
+          <div class="media">
+            <img src="images/hilo.png" alt="Hi-Lo artwork" />
+            <div class="shine"></div>
+          </div>
+          <div class="body">
+            <h3>Hi-Lo</h3>
+            <p class="sub">Guess higher or lower. Build a streak. Cash any time.</p>
+            <ul class="points">
+              <li>Seed-shuffled deck; draws without replacement.</li>
+              <li>Every guess is a transaction. Ties lose.</li>
+              <li>1% edge, explicit cap. All math on-chain.</li>
+            </ul>
+            <div class="actions">
+              <a class="btn primary" href="SomniaHiLo/index.html">Play Hi-Lo</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Mines -->
+        <article class="game-card">
+          <div class="media">
+            <img src="images/mines.png" alt="Mines artwork" />
+            <div class="shine"></div>
+          </div>
+          <div class="body">
+            <h3>Mines</h3>
+            <p class="sub">Open tiles, dodge bombs, multiplier climbs each safe pick.</p>
+            <ul class="points">
+              <li>Bombs placed from a post-commit seed.</li>
+              <li>Every reveal is on-chain, no client tricks.</li>
+              <li>Cash-out → contract balance → withdraw.</li>
+            </ul>
+            <div class="actions">
+              <a class="btn primary" href="SomniaMines/index.html">Play Mines</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- SomniaSpin (under development) -->
+        <article class="game-card">
+          <div class="media">
+            <img src="images/spin.png" alt="SomniaSpin artwork placeholder" />
+            <div class="pill">In development</div>
+            <div class="shine"></div>
+          </div>
+          <div class="body">
+            <h3>SomniaSpin</h3>
+            <p class="sub">Neon reels, verifiable outcomes. Same transparent setup.</p>
+            <ul class="points">
+              <li>1 STT entry by default.</li>
+              <li>Single on-chain reveal from a future block.</li>
+              <li>Bankroll limits and edge remain explicit.</li>
+            </ul>
+            <div class="actions">
+              <a class="btn disabled" href="#" aria-disabled="true">Play soon</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fairness -->
+  <section class="section" id="fair">
+    <div class="container">
+      <header class="section-head">
+        <h2>Fairness</h2>
+        <p>No black boxes. Here’s the model you’re playing against.</p>
+      </header>
+
+      <div class="pill-grid">
+        <div class="pill-card">
+          <h4>Commit → future block</h4>
+          <p>Rounds commit now and reveal after a target block. We mix its blockhash with <code>prevrandao</code>. UI waits until the seed is live.</p>
+        </div>
+        <div class="pill-card">
+          <h4>On-chain clicks</h4>
+          <p>Every reveal is a transaction. What you see is produced by the contract. Front-end can’t peek or reorder.</p>
+        </div>
+        <div class="pill-card">
+          <h4>Transparent edge</h4>
+          <p>Multipliers use fair odds × (1 − edge). Caps are explicit. Numbers sit on-chain, not in a spreadsheet.</p>
+        </div>
+        <div class="pill-card">
+          <h4>Bankroll & payouts</h4>
+          <p>Owner funds a pool. Wins debit it and credit your pending balance. Withdraw when you want.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <header class="section-head">
+        <h2>FAQ</h2>
+        <p>Short and clear. No fluff.</p>
+      </header>
+
+      <div class="qa">
+        <details>
+          <summary>Why do I sometimes see two tx at the start?</summary>
+          <p>If you want the first card/tile face-up before guessing, we “prime” once the seed is ready. That’s a separate tx. You can skip priming and guess blind if you want fewer clicks.</p>
+        </details>
+        <details>
+          <summary>Where do my winnings go?</summary>
+          <p>Cash-out credits your on-chain pending balance. Hit “Withdraw” inside any game to move it to your wallet.</p>
+        </details>
+        <details>
+          <summary>What about multi-wallets?</summary>
+          <p>Entries are priced and rounds are independent. When we add leaderboards, we’ll score over short windows and use anti-sybil rules.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container foot-inner">
+      <div>© <span id="y"></span> Somnia Arcade</div>
+      <div class="small">Testnet first. If we go mainnet, terms will be obvious.</div>
+    </div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- Wallet connect -->
+  <script>
+    const CHAIN = {
+      chainId: '0xC488',
+      chainName: 'Somnia Testnet',
+      nativeCurrency: { name: 'Somnia Test Token', symbol: 'STT', decimals: 18 },
+      rpcUrls: ['https://rpc.ankr.com/somnia_testnet'],
+      blockExplorerUrls: ['https://shannon-explorer.somnia.network']
+    };
+    const $ = id => document.getElementById(id);
+    const connectBtn = $('connectBtn'), box = $('walletBox'), addrShort = $('addrShort'), bal = $('bal'), netDot = $('netDot');
+    let provider, account;
+
+    connectBtn.addEventListener('click', async () => {
+      try {
+        if (!window.ethereum) { alert('Install MetaMask to connect.'); return; }
+        provider = new ethers.BrowserProvider(window.ethereum, 'any');
+        const accs = await provider.send('eth_requestAccounts', []);
+        account = ethers.getAddress(accs[0]);
+
+        const net = await provider.getNetwork();
+        const ok = ('0x' + net.chainId.toString(16)).toLowerCase() === CHAIN.chainId.toLowerCase();
+        if (!ok) {
+          try { await window.ethereum.request({ method:'wallet_switchEthereumChain', params:[{ chainId: CHAIN.chainId }] }); }
+          catch (e) {
+            if (e.code === 4902 || (e.message||'').includes('Unrecognized')) {
+              await window.ethereum.request({ method:'wallet_addEthereumChain', params:[CHAIN] });
+            } else { throw e; }
+          }
+        }
+        const wei = await provider.getBalance(account);
+        bal.textContent = `${Number(ethers.formatEther(wei)).toFixed(4)} STT`;
+        addrShort.textContent = account.slice(0,6)+'…'+account.slice(-4);
+        netDot.classList.add('ok');
+        connectBtn.classList.add('hidden'); box.classList.remove('hidden');
+      } catch (e) { console.error(e); }
+    });
+  </script>
+</body>
+</html>
