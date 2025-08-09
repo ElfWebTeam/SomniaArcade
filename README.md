@@ -39,6 +39,19 @@ Cash out anytime to lock in your winnings.
 
 ---
 
+## Local Deployment (Somnia Testnet)
+
+- Clone the repo:
+   ```bash
+   git clone https://github.com/ElfWebTeam/SomniaArcade && cd SomniaArcade
+   ```
+- Deploy each contract in contracts/ via Remix to Somnia Testnet (chainId 0xC488).
+- Copy deployed address + ABI into the game’s script.js.
+- Fund contract bankroll (owner account) in Remix.
+- Serve locally (e.g. npx http-server .) and play via http://localhost:8080/.
+
+---
+
 ## 🛠 How to Test on Somnia Testnet
 
 ### Prerequisites
