@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Somnia Hi-Lo — On-chain</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.12.1/dist/ethers.umd.min.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/png" href="../images/somnia-logo-original.png">
+</head>
+<body>
+  <!-- Topbar -->
+  <header class="topbar">
+    <div class="brand">
+      <a href="../index.html" class="brand-main" title="Back to Somnia Arcade">Somnia</a>
+      <a href="index.html" class="brand-sub" title="Hi-Lo">Hi-Lo</a>
+    </div>
+
+    <div class="summary">
+      <span>Bet: <strong id="betLabel">1 STT</strong></span>
+      <span>Multiplier: <strong id="mult">1.00×</strong></span>
+      <span>Potential: <strong id="payout">1.00 STT</strong></span>
+    </div>
+
+    <div class="wallet">
+      <button id="connectBtn" class="btn primary">Connect Wallet</button>
+      <div id="walletInfo" class="wallet-info hidden">
+        <span class="dot" id="netDot"></span>
+        <span id="addrShort">—</span>
+        <span class="sep">•</span>
+        <span id="walletBalance">0.0000 STT</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Layout -->
+  <main class="app">
+    <!-- Game -->
+    <section class="card board-wrap">
+      <div class="card-slot">
+        <img id="cardImg" class="card-img" alt="card" />
+        <div id="cardBack" class="card-back">Waiting for start…</div>
+      </div>
+
+      <!-- blocker -->
+      <div id="blocker" class="screen-block hidden">
+        <div>
+          <div class="spin"></div>
+          <div id="blockerText" class="block-msg">Processing…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right side: Round + Balance in one card -->
+    <aside class="card side" id="sideCard">
+      <div class="side-section">
+        <h3>Round</h3>
+        <div class="grid2">
+          <div>Steps won</div>
+          <div><strong id="stepsWon">0</strong></div>
+          <div>Status</div>
+          <div id="status" class="status idle">Idle</div>
+        </div>
+
+        <div class="actions">
+          <button id="startBtn" class="btn primary">Start (on-chain)</button>
+          <button id="cashoutBtn" class="btn success" disabled>Cash Out</button>
+        </div>
+        <div class="actions">
+          <button id="lowerBtn" class="btn ghost" disabled>Lower</button>
+          <button id="higherBtn" class="btn ghost" disabled>Higher</button>
+        </div>
+
+        <p class="hint" id="gateMsg">Connect Somnia Testnet and have ≥ 1 STT.</p>
+        <div class="hint" id="seedInfo"></div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="side-section">
+        <h3>Your On-chain Balance</h3>
+        <div class="balance">
+          <div>
+            <div class="label">Pending in contract</div>
+            <div class="value" id="pendingBal">0.0000 STT</div>
+          </div>
+          <button class="btn ghost" id="withdrawAllBtn" disabled>Withdraw to wallet</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Rules (full width bottom) -->
+    <section class="card rules-card">
+      <h3>Rules</h3>
+      <ol class="rules">
+        <li>Press <strong>Start</strong>. The game commits now and reveals after a future block is ready.</li>
+        <li>First card appears. Choose <strong>Higher</strong> or <strong>Lower</strong>.</li>
+        <li>If you’re right, your <strong>multiplier increases</strong>. Keep guessing or <strong>Cash Out</strong> anytime.</li>
+        <li><strong>Ties lose</strong> (same rank). Deck is seed-shuffled; draws are without replacement.</li>
+        <li>Every action is a <strong>transaction</strong>. Winnings go to your <strong>pending balance</strong> in the contract. Withdraw when you want.</li>
+      </ol>
+      <p class="hint">Fairness: Seed mixes a future blockhash with <code>prevrandao</code>. Frontend can’t peek or reorder.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <div class="foot-inner">
+      <span>Each guess is a transaction. Randomness is derived on-chain from a future block.</span>
+      <span class="addr">
+        Contract:&nbsp;
+        <a class="addr-link" href="https://shannon-explorer.somnia.network/address/0x9F3cC2f1E66B0dd77Ad278eCb1C49C2d6Ef24CED" target="_blank" rel="noopener">
+          0x9F3cC2f1E66B0dd77Ad278eCb1C49C2d6Ef24CED
+        </a>
+      </span>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
