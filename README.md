@@ -1,6 +1,6 @@
 # Somnia Arcade
 
-Somnia Arcade is a collection of fully on-chain mini-games built for the [Somnia Testnet](https://somnia.network/).  
+Somnia Arcade is a collection of fully on-chain mini-games built for the Somnia Testnet.  
 Every game runs entirely on smart contracts with **provable fairness**, transparent payouts, and minimal off-chain logic.  
 
 The platform is designed for quick, fun gameplay while showcasing Somnia’s speed, low cost, and ability to handle real-time interactive dApps.
