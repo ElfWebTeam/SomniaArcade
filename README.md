@@ -135,7 +135,7 @@ Cash out anytime to lock in your winnings.
 - **Live Website:** [https://somniaarcade.com/](https://somniaarcade.com/)  
 - **GitHub Repo:** [https://github.com/ElfWebTeam/SomniaArcade](https://github.com/ElfWebTeam/SomniaArcade)  
 - **Hackathon Page:** [https://dorahacks.io/hackathon/somnia-minigames/detail](https://dorahacks.io/hackathon/somnia-minigames/detail)  
-- **Demo Video:** will be updated after Somnia Spin is deployed.
+- **Demo Video:** [https://www.youtube.com/@ElfWeb](https://www.youtube.com/@ElfWeb)
 
 ---
 ## Future Roadmap
